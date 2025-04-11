@@ -24,7 +24,8 @@ const NavBar = () => {
             <ul>
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/sign-up'>Sign Up</Link></li>
-              <li><Link to="sign-in">Sign In</Link></li>
+              <li><Link to="/sign-in">Sign In</Link></li>
+              <li><Link to ="recipes">Placeholder Test</Link></li>
             </ul>
           )}
         </nav>

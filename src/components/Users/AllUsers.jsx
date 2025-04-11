@@ -1,8 +1,7 @@
-// todo: clicking username links to their page (only if they have a post made!)
-// this filename sucks but i already have like 19 things named "user" "users" etc i'd rather mix it up for my own sanity
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import * as userService from '../../services/userService';
+import { Link } from 'react-router';
 
 const AllUsers = () => {
   const [fetchedUsers, setFetchedUsers] = useState([]);
@@ -22,11 +21,11 @@ const AllUsers = () => {
 
   return (
     <main>
-      <h1>Welcome, {user.username}</h1>
+      <h1>Welcome, {user ? user.username : 'Guest'}</h1>
       <div>
         All registered users: {fetchedUsers.map((user) => (
           <div key={user._id}>
-            <p>{user.username}</p>
+            <p><Link to={`/users/${user._id}`}>{user.username}</Link></p>
           </div>
         ))}
       </div>
