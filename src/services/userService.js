@@ -20,14 +20,21 @@ const index = async () => {
 
 // gets a specified user by their ID
 const getUserById = async (userID) => {
+  console.log("userID", userID);
   try {
     const res = await fetch(`${BASE_URL}/${userID}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     });
     if (!res.ok) {
-      throw new Error('failed to fetch user by id');
+      console.error(`Error: ${res.status} - ${res.statusText}`);
+      if (res.status === 404) {
+        throw new Error('User not found');
+      } else if (res.status === 401) {
+        throw new Error('Unauthorized access');
+      } else {
+        throw new Error('Failed to fetch user by id');
+      }
     }
-    console.log(res.json);
     return await res.json();
   } catch (err) {
     throw new Error(err);

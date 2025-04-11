@@ -19,7 +19,9 @@ const App = () => {
         <Route path="/users" element={<AllUsers />} />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
-        <Route path='/users/:userId' element={<OneUser />} />
+        <Route path='/users/:userID' element={<OneUser />} />
+        <Route path='/recipes' element={<h1>wip recipes</h1>} />
+        <Route path='/recipes/:recipeID' element={<h1>wip recipe id </h1>} />
       </Routes>
     </>
   );
