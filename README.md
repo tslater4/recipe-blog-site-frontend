@@ -1,12 +1,15 @@
-# React + Vite
+# Recipe Blog Site
+## A simple blogging site for sharing recipes and commenting on other peoples recipes 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Deployed App: https://endearing-raindrop-a4fc90.netlify.app/
 
-Currently, two official plugins are available:
+### Planning Materials: https://trello.com/b/SiB1LYmN/module-3-planning
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Attributions: 
+React, React Router, Express, Bodyparser, Cors, Morgan, JWT
 
-## Expanding the ESLint configuration
+### Technologies Used:
+Javascript, CSS, XML, GitHub CoPilot for debugging
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Stretch Goals:
+Add liking, tweak CSS, add image uploading
