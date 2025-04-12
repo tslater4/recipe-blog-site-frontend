@@ -5,14 +5,14 @@ const Recipes = ({ recipes, users }) => {
     <main>
       <h1>Recipes</h1>
       <ul>
-        {/* {nothing below this is able to render unless you log in} */}
+        <div className ="recipe-list">
         {recipes.map((recipe) => (
           <li key={recipe._id}>
-            {(() => {
-              const author = users.find((user) => user._id === recipe.originalPoster)?.username || 'Deleted User';
-              console.log('Author:', author);
-              return (
-                <div className="recipe-card">
+            <div className="recipe-card">
+              {(() => {
+                const author = users.find((user) => user._id === recipe.originalPoster)?.username || 'Deleted User';
+                console.log('Author:', author);
+                return (
                   <div>
                     <h2>{recipe.title}</h2>
                     <h3>{recipe.description}</h3>
@@ -20,11 +20,12 @@ const Recipes = ({ recipes, users }) => {
                     <p>Posted by: {author}</p>
                     <Link to={`/recipes/${recipe._id}`}>View Recipe</Link>
                   </div>
-                </div>
-              );
-            })()}
+                );
+              })()}
+            </div>
           </li>
         ))}
+        </div>
       </ul>
     </main>
   );

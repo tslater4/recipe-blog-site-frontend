@@ -1,5 +1,3 @@
-// src/components/CommentForm/CommentForm.jsx
-
 import { useState } from 'react';
 
 const CommentForm = (props) => {
@@ -26,7 +24,7 @@ const CommentForm = (props) => {
         value={formData.text}
         onChange={handleChange}
       />
-      <button type='submit'>SUBMIT COMMENT</button>
+      <button type='submit' class="submit-button">SUBMIT COMMENT</button>
     </form>
   );
 };

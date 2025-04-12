@@ -24,30 +24,36 @@ a:hover {
 
 body {
   margin: 0;
+  padding-top: 4em;
   display: flex;
-  place-items: center;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  text-align: center; 
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center; 
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  align-self: flex-start;
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #242424;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: border-color 0.25s;
+  font-size: 1em;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #646cff;
 }
 button:focus,
 button:focus-visible {
@@ -65,4 +71,227 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+ul, ol {
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: #242424;
+  color: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2em;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+nav li {
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+nav a:hover {
+  color: #747bff;
+}
+
+.users-list {
+  display: grid;
+  font-size: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  list-style: none; 
+}
+
+.users-list div {
+  background-color: #242424;
+  color: #ffffff;
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #ffffff;
+}
+
+.users-list a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.users-list a:hover {
+  color: #747bff;
+}
+
+.recipe-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1em;
+  justify-content: center;
+  align-items: start;
+  padding: 1em;
+}
+
+.recipe-card {
+  background-color: #242424;
+  color: #ffffff;
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 4px solid #382a2a;
+  margin: 1em;
+}
+
+.edit-link {
+  text-decoration: none;
+  color: #747bff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.edit-link:hover {
+  color: #ffffff;
+}
+
+.delete-button {
+  padding: 0.6em 1.2em;
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ac2222;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.delete-button:hover {
+  background-color: #ff0000;
+  color: #242424;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 0.5em; 
+  width: auto; 
+  text-align: left;
+}
+
+form input,
+form textarea {
+  flex: 1;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form div {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; 
+}
+
+form div:last-child {
+  display: flex;
+  justify-content: center; 
+  gap: 1em;
+  margin-top: 1em;
+}
+
+form button {
+  padding: 0.6em 1.2em;
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+form button:hover {
+  background-color: #ffffff;
+  color: #242424;
+}
+
+form button:focus,
+form button:focus-visible {
+  outline: 2px auto -webkit-focus-ring-color;
+}
+
+comment-list {
+  display: grid;
+  flex-direction: column;
+  grid-template-columns: repeat(1, 2fr); 
+  gap: 1em;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.comment-card {
+  background-color: #242424;
+  color: #ffffff;
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 4px solid #382a2a;
+  
+}
+.comment-card .authorName {
+  color: rgb(128, 119, 119)
+}
+
+.recipe-actions {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 1.5em; 
+  margin-bottom: 1em; 
+}
+
+.submit-button {
+  padding: 0.6em 1.2em;
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ee10c9;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0 auto;
 }

@@ -13,9 +13,9 @@ const OneUser = ({ users, recipes }) => {
         <main>
             <h1>{specificUser.username}'s page</h1>
             <p>Recipes: {specificUserRecipes.length}</p>
-            <div>
+            <div class="recipe-list">
                 {specificUserRecipes.map((recipe) => (
-                    <div key={recipe._id}>
+                    <div key={recipe._id} class="recipe-card">
                         <h2>{recipe.title}</h2>
                         <h3>{recipe.description}</h3>
                         <p>{recipe.body}</p>

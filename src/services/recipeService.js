@@ -13,7 +13,6 @@ const index = async () => {
         }
         return data;
     } catch (err) {
-        console.log(err);
         throw err;
     }
 };
@@ -28,13 +27,11 @@ const indexComments = async () => {
         }
         return data;
     } catch (err) {
-        console.log(err);
         throw err;
     }
 };
 // fetches a specified recipe by its ID
 const getRecipeById = async (recipeID) => {
-    console.log("Fetching recipe with ID:", recipeID);
     try {
         const res = await fetch(`${BASE_URL}/${recipeID}`, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -71,7 +68,6 @@ const show = async (recipeID) => {
         }
         return await res.json();
     } catch (err) {
-        console.log(err);
         throw new Error(err);
     }
 };
@@ -88,7 +84,7 @@ const create = async (RecipeData) => {
       });
       return res.json();
     } catch (error) {
-      console.log(error);
+        throw new Error('Failed to create recipe');
     }
   };
 
@@ -106,11 +102,23 @@ const create = async (RecipeData) => {
         }
         return await res.json();
     } catch (err) {
-        console.log(err);
         throw new Error(err);
     }
   };
-
+const getComments = async () => {
+    try {
+        const res = await fetch(`${BASE_URL}/comments`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        });
+        if (!res.ok) {
+            console.error(`Error: ${res.status} - ${res.statusText}`);
+            throw new Error('Failed to fetch comments');
+        }
+        return await res.json();
+    } catch (err) {
+        throw new Error(err);
+    }
+};
 const update = async (recipeID, recipeFormData) => {
     try {
         const res = await fetch(`${BASE_URL}/${recipeID}`, {
@@ -127,7 +135,6 @@ const update = async (recipeID, recipeFormData) => {
         }
         return await res.json();
     } catch (err) {
-        console.log(err);
         throw new Error(err);
     }
 }
@@ -144,7 +151,7 @@ const createComment = async (hootId, commentFormData) => {
       });
       return res.json();
     } catch (error) {
-      console.log(error);
+        throw new Error(error)
     }
   };
 
@@ -156,4 +163,5 @@ export {
     show,
     update,
     createComment,
+    getComments,
   };

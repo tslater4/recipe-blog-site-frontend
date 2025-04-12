@@ -14,13 +14,9 @@ const signUp = async (formData) => {
     throw new Error(data.err);
     }
     if (data.token) {
-        console.log(data); // debug
+
         localStorage.setItem('token', data.token);
-        let user = JSON.parse(atob(data.token.split('.')[1])); // genuinely no idea why but .payload didnt exist and the info needed was just in the parent, okay sure
-        console.log(user) // debug
-        return user;
-    } else {
-      console.log("token mismatch"); // debug
+        let user = JSON.parse(atob(data.token.split('.')[1]));
     }
     throw new Error('Invalid response from server');
     } catch (err) {
@@ -38,7 +34,6 @@ const signIn = async (formData) => {
     });
 
   const data = await res.json();
-  console.log(data); // debug
   if (data.err) {
   throw new Error(data.err);
   }
@@ -49,7 +44,6 @@ const signIn = async (formData) => {
   }
   throw new Error('Invalid response from server');
   } catch (err) {
-  console.log(err);
   throw new Error(err);
   }
 };

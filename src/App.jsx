@@ -12,11 +12,10 @@ import Recipes from './components/Recipes/Recipes';
 import AllUsers from './components/Users/AllUsers';
 import OneUser from './components/Users/UserById';
 import RecipeDetails from './components/Recipes/RecipeDetails';
-import CommentForm from './components/CommentForm/CommentForm';
 //services
 import * as userService from './services/userService';
 import * as recipeService from './services/recipeService';
-
+import * as commentService from './services/commentService';
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -24,9 +23,11 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const [comments, setComments] = useState([]);
 
+
   useEffect(() => {
     recipeService.index().then(setRecipes);
     userService.index().then(setUsers);
+    commentService.index().then(setComments);
   }, []);
   
   
@@ -49,34 +50,27 @@ const App = () => {
     navigate(`/recipes/${recipeID}`);
   };
 
-  const handleAddComment = async (recipeID, commentFormData) => {
-    try {
-      const newComment = await recipeService.createComment(recipeID, commentFormData);
-      setComments((prevComments) => [newComment, ...prevComments]);
-    } catch (error) {
-      console.error('Failed to add comment:', error);
-      // Optionally, show an error message to the user
-    }
-  };
 
   return (
     <>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Landing recipes={recipes} users={users}/>} />
-        <Route path='/recipes' element={<Recipes recipes={recipes} users={users} />} />
-        <Route path="/users" element={<AllUsers users={users}/>} />
-        <Route path='/users/:userID' element={<OneUser recipes={recipes} users={users}/>} />
-
-        <Route path='/recipes' element={<h1>wip recipes</h1>} />
-        <Route path='/recipes/:recipeID/comments' element={<commentForm handleAddComment={handleAddComment}/> } />
-        <Route path='/recipes/:recipeID' element={<RecipeDetails comments={comments} recipes={recipes} setRecipes={setRecipes} users={users} handleDeleteRecipe={handleDeleteRecipe} />} /> 
-        <Route path='/recipes/new' element={<RecipeForm handleAddRecipe={handleAddRecipe}/>} />
-        <Route path='/recipes/:recipeID/edit' element={<RecipeForm handleUpdateRecipe={handleUpdateRecipe} />} />
-        
+        <Route path='/' element={<Landing recipes={recipes} users={users} user={user}/>} />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
 
+        {user ? (
+          <>
+            <Route path='/recipes' element={<Recipes recipes={recipes} users={users} />} />
+            <Route path='/users' element={<AllUsers users={users}/>} />
+            <Route path='/users/:userID' element={<OneUser recipes={recipes} users={users}/>} />
+            <Route path='/recipes/:recipeID' element={<RecipeDetails comments={comments} setComments={setComments} recipes={recipes} setRecipes={setRecipes} users={users} handleDeleteRecipe={handleDeleteRecipe} />} /> 
+            <Route path='/recipes/new' element={<RecipeForm handleAddRecipe={handleAddRecipe}/>} />
+            <Route path='/recipes/:recipeID/edit' element={<RecipeForm handleUpdateRecipe={handleUpdateRecipe} />} />
+          </>
+        ) : (
+          <Route path='*' element={<SignInForm />} />
+        )}
       </Routes>
     </>
   );

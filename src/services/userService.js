@@ -13,14 +13,12 @@ const index = async () => {
     }
     return data
   } catch (err) {
-    console.log(err);
     throw new Error(err);
   }
 };
 
 // gets a specified user by their ID
 const getUserById = async (userID) => {
-  console.log("userID", userID);
   try {
     const res = await fetch(`${BASE_URL}/${userID}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },

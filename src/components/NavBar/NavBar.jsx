@@ -6,7 +6,6 @@ import { UserContext } from '../../contexts/UserContext';
 const NavBar = () => {
     const { user, setUser } = useContext(UserContext);
     
-    // load mainpage and wipe token
     const handleSignOut = () => {
         localStorage.removeItem('token');
         setUser(null);
@@ -15,14 +14,15 @@ const NavBar = () => {
     return (
         <nav>
           {user ? (
-            <ul>
-              <li><Link to='/'>Home</Link></li>
-              <li><Link to='/users'>Users</Link></li>
-              <li><Link to='/recipes'>Recipes</Link></li>
-              <li><Link to='/recipes/new'>New Recipe</Link></li>
-              <li><Link to={`/users/${user._id}`}>{user.username}</Link></li>
-              <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
-            </ul>
+          <ul>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/users'>Users</Link></li>
+            <li><Link to='/recipes'>Recipes</Link></li>
+            <li><Link to='/recipes/new'>New Recipe</Link></li>
+            <li><Link to={`/users/${user._id}`}>{user.username}</Link></li>
+            <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
+          </ul>
+       
           ) : (
             <ul>
               <li><Link to='/'>Home</Link></li>
