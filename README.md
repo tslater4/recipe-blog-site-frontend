@@ -9,7 +9,7 @@
 React, React Router, Express, Bodyparser, Cors, Morgan, JWT
 
 ### Technologies Used:
-Javascript, CSS, XML, GitHub CoPilot for debugging
+Javascript, CSS, XML, Express for Routing, HTML, Postman for route testing, MongoDB Atlas for data management, GitHub CoPilot for debugging
 
 ### Stretch Goals:
 Add liking, tweak CSS, add image uploading
