@@ -18,6 +18,9 @@ const NavBar = () => {
             <ul>
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/users'>Users</Link></li>
+              <li><Link to='/recipes'>Recipes</Link></li>
+              <li><Link to='/recipes/new'>New Recipe</Link></li>
+              <li><Link to={`/users/${user._id}`}>{user.username}</Link></li>
               <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
             </ul>
           ) : (
@@ -25,7 +28,6 @@ const NavBar = () => {
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/sign-up'>Sign Up</Link></li>
               <li><Link to="/sign-in">Sign In</Link></li>
-              <li><Link to ="recipes">Placeholder Test</Link></li>
             </ul>
           )}
         </nav>
