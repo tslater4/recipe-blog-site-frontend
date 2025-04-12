@@ -6,7 +6,7 @@
 ### Planning Materials: https://trello.com/b/SiB1LYmN/module-3-planning
 
 ### Attributions: 
-React, React Router, Express, Bodyparser, Cors, Morgan, JWT
+React, React Router, Express, Bodyparser, Cors, Morgan, JWT, General Assembly 
 
 ### Technologies Used:
 Javascript, CSS, XML, Express for Routing, HTML, Postman for route testing, MongoDB Atlas for data management, GitHub CoPilot for debugging
