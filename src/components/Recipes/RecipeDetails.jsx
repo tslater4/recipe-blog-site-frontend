@@ -8,7 +8,6 @@ const Recipe = ({ recipes, users, handleDeleteRecipe, setRecipes, comments, setC
     const { recipeID } = useParams();
     const { user, setUser } = useContext(UserContext);
     const recipe = recipes.find((recipe) => recipe._id === recipeID);
-    console.log("recipe", recipe)
     const author = recipe ? users.find((user) => user._id === recipe.originalPoster)?.username || 'Deleted User' : 'Unknown';
     const handleAddComment = async (commentData) => {
         try {

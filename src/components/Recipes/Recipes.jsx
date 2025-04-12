@@ -11,7 +11,6 @@ const Recipes = ({ recipes, users }) => {
             <div className="recipe-card">
               {(() => {
                 const author = users.find((user) => user._id === recipe.originalPoster)?.username || 'Deleted User';
-                console.log('Author:', author);
                 return (
                   <div>
                     <h2>{recipe.title}</h2>

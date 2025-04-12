@@ -4,7 +4,6 @@ import * as recipeService from '../../services/recipeService';
 
 const RecipeForm = (props) => {
     const { recipeID } = useParams();
-    console.log(recipeID)
     const [formData, setFormData] = useState({
         title: '',
         description: '',
