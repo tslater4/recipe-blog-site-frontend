@@ -11,7 +11,6 @@ const SignUpForm = () => {
     username: '',
     password: '',
     passwordConf: '',
-    
   });
  
   const { username, password, passwordConf } = formData;
@@ -22,14 +21,27 @@ const SignUpForm = () => {
   };
 
   const handleSubmit = async (evt) => {
-    evt.preventDefault();
-    try {
-      const newUser = await signUp(formData);
-      setUser(newUser); 
-    } catch (error) {
-      setMessage(error.message);
+  evt.preventDefault();
+  try {
+    const response = await signUp(formData);
+    console.log('Signup response:', response); // Debug log
+    
+    if (response.token && response.user) {
+      // Token is already stored in localStorage by authService
+      // Just set the user in context
+      setUser(response.user);
+      
+      // Show success message and navigate
+      setMessage('Account created successfully!');
+      navigate('/');
+    } else {
+      setMessage('Signup failed - no token received');
     }
-  };
+  } catch (error) {
+    console.error('Signup error:', error);
+    setMessage(error.message);
+  }
+};
 
   const isFormInvalid = () => {
     return !(username && password && password === passwordConf);
@@ -44,7 +56,7 @@ const SignUpForm = () => {
           <label htmlFor='username'>Username:</label>
           <input
             type='text'
-            id='name'
+            id='username' // Fixed: was 'name', should be 'username'
             value={username}
             name='username'
             onChange={handleChange}
@@ -75,7 +87,7 @@ const SignUpForm = () => {
         </div>
         <div>
           <button disabled={isFormInvalid()}>Sign Up</button>
-          <button onClick={() => navigate('/')}>Cancel</button>
+          <button type="button" onClick={() => navigate('/')}>Cancel</button>
         </div>
       </form>
     </main>

@@ -1,6 +1,6 @@
 const Landing = ({ user, users, recipes }) => {
     return (
-        <div>
+        <div class="home-content">
             <h1>Welcome to my Recipe App!</h1>
             <p>Sign in now to post your own recipe and view recipes made by others!</p>
             {user ? (

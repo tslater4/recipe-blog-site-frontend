@@ -17,7 +17,7 @@ const Recipe = ({ recipes, users, handleDeleteRecipe, setRecipes, comments, setC
             setRecipes((prevRecipes) =>
                 prevRecipes.map((r) =>
                     r._id === recipeID
-                        ? { ...r, comments: [...r.comments, newComment._id] } // Add the new comment ID
+                        ? { ...r, comments: [...r.comments, newComment._id] }
                         : r
                 )
             );
@@ -31,11 +31,11 @@ const Recipe = ({ recipes, users, handleDeleteRecipe, setRecipes, comments, setC
 
     return recipe ? (
         <div>
-            <div class="recipe-card">
-                <h1>Recipe: {recipe.title}</h1>
-                <h2>Description: {recipe.description}</h2>
-                <p>Body: {recipe.body}</p>
-                <p>Posted by: {author}</p>
+            <div className="recipe-card-large">
+                <h1>{recipe.title}</h1>
+                <h2>{recipe.description}</h2>
+                <p>{recipe.body}</p>
+                <p>Posted by {author}</p>
             </div>
             {user._id === recipe.originalPoster ? (
           
