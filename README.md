@@ -97,24 +97,6 @@ A modern, responsive web application that allows users to create accounts, share
 
 ---
 
-## Future Enhancements
-
-### Planned Features
-- **Recipe Ratings**: 5-star rating system with aggregate scores
-- **Image Upload**: Photo support for recipes with cloud storage
-- **Advanced Search**: Filter recipes by ingredients, cuisine, or difficulty
-- **Social Features**: Follow users and personalized recipe feeds
-- **Recipe Collections**: Bookmark and organize favorite recipes
-- **Nutritional Information**: Calorie and nutrient tracking
-
-### Technical Improvements
-- **Performance Optimization**: Lazy loading and code splitting
-- **Testing Suite**: Unit and integration tests with Jest/React Testing Library
-- **Progressive Web App**: Offline functionality and mobile app experience
-- **Real-time Features**: Live comments and notifications with WebSockets
-
----
-
 ## Key Learning Outcomes
 
 - **Full-Stack Development**: End-to-end application development from database to deployment
