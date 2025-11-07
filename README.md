@@ -145,3 +145,5 @@ A modern, responsive web application that allows users to create accounts, share
 
 ### Attributions
 React, React Router, Express, MongoDB, JWT, bcrypt, Vite, General Assembly curriculum and guidance.
+
+<img width="1880" height="912" alt="image" src="https://github.com/user-attachments/assets/76c57bb0-b9ab-49d3-b6e9-b035d231fe9b" />
